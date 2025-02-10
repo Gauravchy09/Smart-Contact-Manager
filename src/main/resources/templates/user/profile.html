@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{:: title},~{:: script})}">
+
+<head>
+    <title data-th-text="${loggedInUser.name}+' | SCM'">Profile Page</title>
+</head>
+
+<body>
+    <div id="content" class="sm:pl-64" style="height:1000px">
+
+        <div class="content">
+
+            <div th:if="${loggedInUser}">
+                <div th:replace="~{user/sidebar :: sidebar}"></div>
+            </div>
+            <div style="height: 900px mt-7">
+                <div class=" flex justify-center flex-col items-center mt-12 p-3 sticky">
+
+
+                    <div
+                        class=" w-full flex max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-5">
+                        <img th:src="@{${loggedInUser.profilePic}}" onerror="this.src='/images/profile.jpeg'" class="h-24 rounded-full sm:h-34" alt="User Logo" />
+                        </a>
+                        <div class="px-5 pb-5">
+                            <a href="#">
+                                <h5 th:text="${loggedInUser.name}" class=" text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">Apple
+                                    Watch Series 7 GPS, Aluminium Case, Starlight Sport</h5>
+                                    <h5 th:text="${loggedInUser.email}" class=" text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">Apple
+                                        Watch Series 7 GPS, Aluminium Case, Starlight Sport</h5>
+                                        <h5 th:text="${loggedInUser.phoneNumber}" class=" text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">Apple
+                                            Watch Series 7 GPS, Aluminium Case, Starlight Sport</h5>
+                            </a>
+                            <div class="flex flex-col place-items-start mt-2.5 mb-5">
+                                <div  class="items-center space-x-1 rtl:space-x-reverse">
+                                    <span class="text-2xlfont-semibold text-gray-700 dark:text-white">About : </span>
+                                    <span class="pl-4" th:text="${loggedInUser.about}"></span>
+                                    
+                                </div>
+                                <div>
+                                    <span class="text-2xlfont-semibold text-gray-700 dark:text-white">Role : </span>
+                                    <span class="pl-4" th:text="${loggedInUser.roleList}"></span>
+                                </div>
+                                <div>
+                                    <span class="text-2xlfont-semibold text-gray-700 dark:text-white">Provider : </span>
+                                    <span class="pl-4" th:text="${loggedInUser.provider}"></span>
+                                </div>
+                                <div>
+                                    <span class="text-2xlfont-semibold text-gray-700 dark:text-white">Email Verified  : </span>
+                                    <span class="pl-4" th:text="${loggedInUser.emailVerified}"></span>
+                                </div>
+                                <div>
+                                    <span class="text-2xlfont-semibold text-gray-700 dark:text-white">Phone Verified  : </span>
+                                    <span class="pl-4" th:text="${loggedInUser.phoneVerified}"></span>
+                                </div>
+                                
+                            </div>
+                            <div class="flex  space-x-2">
+                                
+                                <a th:href="@{'/user/contacts/add'}"
+                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Contacts</a>
+                                    <a th:href="@{'/user/contacts'} "
+                                    class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">See Contacts</a>
+                            </div>
+                           
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        console.log("this is profile page");
+        
+    </script>
+</body>
+
+</html>

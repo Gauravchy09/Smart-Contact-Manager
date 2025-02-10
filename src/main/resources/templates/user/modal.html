@@ -1,0 +1,63 @@
+<div th:fragment="contact_modal">
+    <!-- Main modal -->
+    <div id="view_contact_modal" tabindex="-1" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class=" relative m-2 space-y-2">
+                    <div class="flex justify-center  items-center pt-2 border-b dark:border-gray-700">
+                        <img id="contact_image" onerror="this.src='/images/profile.jpeg'" alt="img" class="relative w-30 h-24 object-cover object-center rounded-full"
+                            src="">
+                    </div>
+
+                    <p id="contact_name" class="text-center text-xl font-semibold text-gray-900 dark:text-white">
+                        name
+                    </p>
+                    <p class="text-center text-gray-800 dark:text-gray-100" id="contact_email">
+                        email
+                    </p>
+                    <p class="text-center text-gray-800 dark:text-gray-100" id="contact_phone">
+                        phone
+                    </p>
+                    <div class="pt-2">
+                        <hr>
+                    </div>
+                </div>
+                <!-- Modal body -->
+                <div class=" text-pretty text-center md:pl-3 space-y-3">
+                    <p 
+                        class="pr-3 text-based leading-relaxed font-semibold pl-3 text-gray-800 dark:text-gray-100">
+                        Address : <span class="pl-3" id="contact_address"></span>
+                    </p>
+                    <p 
+                        class="pr-3 text-based leading-relaxed font-semibold pl-3 text-gray-800 dark:text-gray-100">
+                        About : <span class="pl-3" id="contact_about"></span>
+                    </p>
+                    <div class="pr-3">
+                        Favourite : <span class="pl-3" id="contact_favourite">This is your contact favourite</span>
+                    </div>
+                    <p 
+                        class="pr-3 text-based leading-relaxed font-semibold pl-3 text-gray-800 dark:text-gray-100">
+                        websiteLink : <a class="pl-3" id="contact_website" href="#" target="_blank"></a>
+                    </p>
+                    <p 
+                        class="pr-3 text-based leading-relaxed font-semibold pl-3 text-gray-800 dark:text-gray-100">
+                        linkedInLink : <a class="pl-3" id="contact_linkedIn" target="_blank"></a>
+                    </p>
+                    <div class="pt-2">
+                        <hr>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div
+                    class="flex items-center justify-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+
+                    <button type="button" onclick="closeContactModal()"
+                        class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 ">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

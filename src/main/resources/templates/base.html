@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" th:fragment="parent(content,title1,script)" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title th:replace="${title1}">Base Page</title>
+        <link rel="stylesheet" th:href="@{/css/output.css}">
+        <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <!-- font awesome linke -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+                integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+                crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<!-- base.html -->
+
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-white">
+
+        <!-- 1.Navbar -->
+        <div th:if="${loggedInUser}" class="pb-20">
+                <div th:replace="~{user/user_navbar::user-navbar}"></div>
+        </div>
+        <div th:unless="${loggedInUser}" class="pb-20">
+                <div th:replace="~{navbar::navbar}"></div>
+        </div>
+
+        <!-- <div th:if="${loggedInUser}">
+                <div th:replace="~{user/sidebar :: sidebar}"></div>
+        </div> -->
+
+
+        <!-- 2.Content -->
+        <section th:replace="${content}">
+        </section>
+        <!-- 3.Footer -->
+        
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script th:src="@{'/js/script.js'}"></script>
+        <th:block th:replace="${script}"></th:block>
+
+</body>
+
+</html>
